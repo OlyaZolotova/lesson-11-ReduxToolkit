@@ -41,7 +41,11 @@ export const nickSlice = createSlice({
 export const nickReducer = nickSlice.reducer
 export const { changeNick } = nickSlice.actions
 
-const usersDefaultState = {
+interface IUsersState {
+  users: string[];
+}
+
+const usersDefaultState: IUsersState = {
   users: [],
 };
 
@@ -51,7 +55,7 @@ export const usersSlice = createSlice({
 
   reducers: {
     addUsers: (state, action) => {
-      state.users = state.users.push(action.payload)
+      state.users.push(action.payload)
     },
     removeUsers: (state, action) => {
 
